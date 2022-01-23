@@ -1,0 +1,48 @@
+/* Heidi Shell
+   8/29/2021 */
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+/* 
+  finds # of unique items (N) that have a price less than given price (M)
+
+  input
+  first line - total # of unique items (N)
+  second line - space separated prices of items (A)
+  third line - number of queries (Q)
+  fourth+ lines (determined by Q) - price (M)
+  */
+
+int main() {
+   int N; // # of unique items
+   cin >> N; 
+        
+   int A[N]; // array of game prices
+   for (int i = 0; i < N; i++)
+     cin >> A[i];
+
+   sort(A, A+N);
+
+   int Q; // number of queries
+   cin >> Q
+   
+   int M[Q]; // price given
+   
+   for(int i = 0; i < Q; i++)
+     cin >> M[i]; // price ranges amount
+   int x = 0;
+   
+   // calculates # of items having price less than M for that query
+   while (Q--){
+    int count = 0;
+     for (int i = 0; A[i] < M[x] && i < N; i++) 
+      count++;
+     x++;
+     
+    // output
+    cout << count << endl;
+   }
+   return 0;
+}
